@@ -1,0 +1,23 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles --testEnvironment=node --runInBand --coverage --forceExit",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "http-status-codes": "^2.2.0",
+    "mongoose": "^5.13.5",
+    "uuid": "^8.3.2",
+    "validate.js": "^0.13.1"
+  },
+  "devDependencies": {
+    "jest": "^29.0.3"
+  }
+}
