@@ -2,21 +2,21 @@ const validate = require('validate.js');
 
 const Utils = require('../utils/utils');
 const Constants = require('../utils/constants');
-const UserRepository = require('../port/user_repository');
-const Constraints = require('../utils/user_validation');
+const ProductRepository = require('../port/product_repository');
+const Constraints = require('../utils/product_validation');
 const Validation = require('../utils/validation');
 
-const User = {
+const Product = {
     async create(data) {
         try {
-            const validation = Validation.create(data, Constraints);
+            const validation = Validation.create(data, Constants);
             if (validation) {
                 return validation;
             }
 
             data.id = Utils.generateUuid();
 
-            const response = await UserRepository.create(data);
+            const response = await ProductRepository.create(data);
 
             if (response.code === 11000) {
                 const result = Constants.ErrorDuplicate;
@@ -37,7 +37,7 @@ const User = {
                 return response;
             }
 
-            const response = await UserRepository.update(data);
+            const response = await ProductRepository.update(data);
 
             if (response === []) {
                 const result = Constants.ErrorNotFound;
@@ -58,7 +58,7 @@ const User = {
                 return response;
             }
 
-            const response = await UserRepository.delete(data);
+            const response = await ProductRepository.delete(data);
 
             return response;
         } catch (error) {
@@ -66,7 +66,7 @@ const User = {
         }
     },
 
-    async listByEmail(data) {
+    async listByDescription(data) {
         try {
             const validation = validate.validate(data, Constraints.get);
             if (validation) {
@@ -75,7 +75,7 @@ const User = {
                 return response;
             }
 
-            const response = await UserRepository.getByEmail(data);
+            const response = await ProductRepository.getByDescription(data);
 
             return response;
         } catch (error) {
@@ -85,7 +85,7 @@ const User = {
 
     async list() {
         try {
-            const response = await UserRepository.list();
+            const response = await ProductRepository.list();
 
             return response;
         } catch (error) {
@@ -93,4 +93,4 @@ const User = {
         }
     },
 };
-module.exports = User;
+module.exports = Product;
