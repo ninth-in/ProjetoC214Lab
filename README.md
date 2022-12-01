@@ -7,10 +7,8 @@
 - O projeto é uma aplicação completa, front, back, CI, teste
 
 ## 💻 Funcionalidades
-- Login
 - Cadastro de Usuário
 - Cadastro de Produtos
-- Vendas
 
 ## 💻 Framework
 - REACT
