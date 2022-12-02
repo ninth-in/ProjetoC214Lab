@@ -15,7 +15,7 @@
 ## 💻 Framework
 - REACT
 
-## 🔧 Testes
+## 🔧 Instalação
 - npm i
 
 ## 💻 Testes
