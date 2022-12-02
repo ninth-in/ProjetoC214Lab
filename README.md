@@ -16,7 +16,7 @@
 - REACT
 
 ## 🔧 Testes
--npm i
+- npm i
 
 ## 💻 Testes
 - npm run test
